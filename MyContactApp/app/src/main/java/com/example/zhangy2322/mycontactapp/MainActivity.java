@@ -1,5 +1,6 @@
 package com.example.zhangy2322.mycontactapp;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import android.app.AlertDialog;
 
 
 public class MainActivity extends AppCompatActivity {
+    public static final String EXTRA_RESULT = "com.example.myContactApp.RESULT";
 
     DatabaseHelper myDb;
 
@@ -46,6 +48,11 @@ public class MainActivity extends AppCompatActivity {
 
             //Create toast message to user indicating data inserted correctly
             Toast.makeText(getApplicationContext(), "Success!", Toast.LENGTH_SHORT).show();
+
+            //Clear fields
+            editName.setText("");
+            editPhone.setText("");
+            editEmail.setText("");
         }
         else {
             Log.d("MyContact", "Data insertion unsuccessful");
@@ -108,27 +115,23 @@ public class MainActivity extends AppCompatActivity {
         //use getString method
         res.moveToFirst();
         while (res.moveToNext()) {
-            if ((res.getString(2)).equals(searchName.toString())) {
-                Toast.makeText(getApplicationContext(), "Names are equal", Toast.LENGTH_SHORT).show();
 
-                buffer.append(searchName.toString() + "\n" + res.getString(2) + "\n" + res.getString(3));
+            if ((res.getString(1)).toLowerCase().equals(searchName.getText().toString().toLowerCase())) {
+
+
+                buffer.append(res.getString(1) + "\n" + res.getString(2) + "\n" + res.getString(3));
             }
         }
 
-        showMessage("Search results", buffer.toString());
+        String searchResult = "Search result: \n\n" + buffer.toString();
+
+        Intent intent = new Intent(this, SearchByNameActivity.class);
+
+        intent.putExtra(EXTRA_RESULT, searchResult);
+        startActivity(intent);
 
 
-        /*
-        Cursor search = myDb.getSearchData(searchName.toString());
 
-        StringBuffer buffer = new StringBuffer();
-        for (int col = 1; col <= 3; col++) {
-            buffer.append(search.getString(col));
-            buffer.append("\n");
-        }
-
-        showMessage("Search results", buffer.toString());
-        */
     }
 
 }
