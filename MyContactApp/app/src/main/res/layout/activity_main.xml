@@ -15,7 +15,6 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Name: "
         android:id="@+id/textView"
-        android:layout_marginTop="64dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -25,10 +24,10 @@
         android:layout_height="wrap_content"
         android:text="Add Data"
         android:id="@+id/button_add"
-        android:layout_marginBottom="72dp"
         android:onClick="addData"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_below="@+id/editText_email"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -36,10 +35,9 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Phone: "
         android:id="@+id/textView2"
-        android:layout_marginTop="34dp"
         android:layout_below="@+id/editText_name"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignRight="@+id/textView"
+        android:layout_alignEnd="@+id/textView" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -66,7 +64,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Email: "
         android:id="@+id/textView3"
-        android:layout_centerVertical="true"
+        android:layout_below="@+id/editText_phone"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -79,5 +77,36 @@
         android:layout_alignTop="@+id/textView3"
         android:layout_toRightOf="@+id/textView3"
         android:layout_toEndOf="@+id/textView3" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View Contacts"
+        android:id="@+id/button_view"
+        android:layout_alignTop="@+id/button_add"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:onClick="viewData" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText_searchName"
+        android:layout_below="@+id/button_add"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="102dp"
+        android:layout_toLeftOf="@+id/button_view"
+        android:layout_toStartOf="@+id/button_view" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Search by name"
+        android:id="@+id/button_search"
+        android:layout_alignTop="@+id/editText_searchName"
+        android:layout_toEndOf="@+id/editText_searchName"
+        android:layout_toRightOf="@+id/editText_searchName"
+        android:onClick="searchByName" />
 
 </RelativeLayout>
