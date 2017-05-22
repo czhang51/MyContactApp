@@ -3,6 +3,7 @@ package com.example.zhangy2322.mycontactapp;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 public class SearchByNameActivity extends AppCompatActivity {
@@ -19,5 +20,11 @@ public class SearchByNameActivity extends AppCompatActivity {
         //Capture the layout's TextView and set the string as its text
         TextView textView = (TextView)(findViewById(R.id.textView_searchResult));
         textView.setText(searchResult);
+    }
+
+    public void goBack(View v) {
+        Intent intent = new Intent(this, MainActivity.class);
+
+        startActivity(intent);
     }
 }

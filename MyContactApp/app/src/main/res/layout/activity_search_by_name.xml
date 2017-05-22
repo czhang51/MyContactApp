@@ -19,4 +19,14 @@
         android:layout_alignParentStart="true"
         android:textColor="@color/abc_primary_text_disable_only_material_light"
         android:textSize="30dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        android:id="@+id/button_back"
+        android:layout_below="@+id/textView_searchResult"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="88dp"
+        android:onClick="goBack" />
 </RelativeLayout>
